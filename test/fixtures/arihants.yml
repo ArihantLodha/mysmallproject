@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Division: MyString
+  Created: 2017-08-16
+
+two:
+  Name: MyString
+  Division: MyString
+  Created: 2017-08-16
