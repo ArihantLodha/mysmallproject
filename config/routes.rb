@@ -13,7 +13,7 @@ Rails.application.routes.draw do
  root 'page#home'
  get 'about', to: 'page#about'
  get 'new', to: 'page#new'
- get 'arihants',to: 'arihants#new'
+
  resources :arihants
  
   # Example resource route (maps HTTP verbs to controller actions automatically):

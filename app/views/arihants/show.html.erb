@@ -1,4 +1,4 @@
-<h1>Showing the selected article</h1>
+<h1>Showing the selected Records</h1>
 
 <p>
 Name: <%= @arihant.Name %>
@@ -13,3 +13,6 @@ Division: <%= @arihant.Division %>
 <p>
 Created: <%= @arihant.Created %>
 </p>
+
+<%= link_to 'Back', arihants_path %>
+<%= link_to 'Edit', edit_arihant_path(@arihant) %>

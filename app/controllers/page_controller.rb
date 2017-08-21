@@ -10,7 +10,6 @@ end
 
 def new
     @articles = Article.new
-    
 end
 
 def create
