@@ -1,4 +1,6 @@
 class ArihantsController < ApplicationController
+ before_action :set_article, only: [:edit,:update,:show,:destroy]
+ 
  def new
      @arihant = Arihant.new
  end
@@ -19,22 +21,18 @@ class ArihantsController < ApplicationController
  end
   
   def show
-    @arihant = Arihant.find(params[:id])
   end 
   
   def destroy
-   @arihant = Arihant.find(params[:id])
   @arihant.destroy
    flash[:notice] = "Records was successfully deleted."
   redirect_to arihants_path(@arihant)
   end
   
   def edit
-    @arihant = Arihant.find(params[:id])
   end
   
   def update
-   @arihant = Arihant.find(params[:id])
    if @arihant.update(arihant_params)
     flash[:notice] = "Records was successfully updated."
     redirect_to arihant_path(@arihant)
@@ -46,6 +44,10 @@ class ArihantsController < ApplicationController
   private
   def arihant_params
   params.require(:arihant).permit(:Name,:Division,:Created)
+  end
+  
+  def set_article
+   @arihant = Arihant.find(params[:id])
   end
   
 end
