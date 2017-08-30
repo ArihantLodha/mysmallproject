@@ -13,7 +13,7 @@ class ArihantsController < ApplicationController
   @arihant = Arihant.new(arihant_params)
  # render plain:params[:arihant].inspect
   if @arihant.save
-   flash[:notice] = "Records was successfully created."
+   flash[:success] = "Records was successfully created."
    redirect_to arihant_path(@arihant)
   else
     render 'new'
@@ -25,7 +25,7 @@ class ArihantsController < ApplicationController
   
   def destroy
   @arihant.destroy
-   flash[:notice] = "Records was successfully deleted."
+   flash[:danger] = "Records was successfully deleted."
   redirect_to arihants_path(@arihant)
   end
   
@@ -34,7 +34,7 @@ class ArihantsController < ApplicationController
   
   def update
    if @arihant.update(arihant_params)
-    flash[:notice] = "Records was successfully updated."
+    flash[:success] = "Records was successfully updated."
     redirect_to arihant_path(@arihant)
    else
     render 'edit'
