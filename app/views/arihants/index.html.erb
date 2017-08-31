@@ -1,26 +1,27 @@
-<h1>Listing all articles.</h1>
-<%= link_to "Create new article",new_arihant_path %>
+<h1 align="center">Listing all articles.</h1>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Division</th>
-        <th>Created Date</th>
-    </tr>
+
+ 
     <% @allrecords.each do|record| %>
-    <tr>
-        <td><%= record.id %></td>
-        <td><%= record.Name %></td>
-        <td><%= record.Division %></td>
-        <td><%= record.Created %></td>
-        <td><%= link_to "Edit", edit_arihant_path(record) %></td>
-        <td>|</td>
-        <td><%= link_to "Show", arihant_path(record) %></td>
-        <td>|</td>
-        <td>
-            <%= link_to "Delete", arihant_path(record), method: :delete, data: {confirm: " Are you sure ?"} %>
-        </td>
-    </tr>
-    <% end %>
-</table>
+   
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+            <div class="article-title ">
+             <td align= "left"> <%= link_to record.Name , arihant_path(record) %>  </td>
+             <td align="right"><%= record.Created %></td>
+            </div>
+            <div class="article-body">
+               <td><%= record.Division %></td>
+              </div>
+              <div>
+              <%= link_to 'Delete the Articles', arihant_path(record),method: :delete,
+                         data: {confirm: "Are you sure you want to delete the data?"} ,
+                         class: "btn btn-xs btn-danger" %>
+              <%= link_to 'Edit the Articles', edit_arihant_path(record),class: "btn btn-xs btn-primary" %>   
+            </div>
+        </div>
+        
+    </div>
+</div>
+<% end %>

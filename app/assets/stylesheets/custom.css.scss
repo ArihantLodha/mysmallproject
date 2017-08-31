@@ -56,6 +56,11 @@ $navbar-default-bg:#0CA4B2;
 .btn-right{
   align : right;
 }
+
+.article-actions{
+    border-top: 1px solie #eaeaea;
+    padding-top: 5Px;
+}
 footer
 {
  margin-top : 45px;
@@ -82,4 +87,16 @@ footer ul li
 {
     float: left;
    margin-left: 15px;
+}
+.article-title
+{
+    font-weight: bold;
+    font-size: 1.5em;
+    
+}
+.article-body{
+    border-top: 1px solid #eaeaea;
+     border-bottom: 1px solid #eaeaea;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
