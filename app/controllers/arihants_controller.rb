@@ -11,6 +11,7 @@ class ArihantsController < ApplicationController
  
  def create
   @arihant = Arihant.new(arihant_params)
+  @arihant.user = User.first
  # render plain:params[:arihant].inspect
   if @arihant.save
    flash[:success] = "Records was successfully created."
