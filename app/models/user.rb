@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     has_many :arihants
+    has_secure_passwords
     before_save {self.email = email.downcase}
    validates :username, presence: true, uniqueness: {case_sensitivity: false},
    length:{minimum: 3, maximum: 25}
