@@ -56,7 +56,7 @@ class ArihantsController < ApplicationController
   end
   
   def require_same_user
-  if current_user != @arihant.user
+  if current_user != @arihant.user && !current_user.admin?
    flash[:danger] = "This article is not created by you."
    redirect_to root_path
   end

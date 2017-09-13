@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    has_many :arihants
+    has_many :arihants, dependent: :destroy
     has_secure_password
   
     before_save {self.email = email.downcase}
