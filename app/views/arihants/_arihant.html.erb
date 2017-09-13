@@ -14,12 +14,14 @@
                <%= time_ago_in_words(record.created_at) %> ago, last updated: <%= time_ago_in_words(record.updated_at) %> ago</small>
             </div>
               </div>
+              <% if logged_in? && current_user == record.user %>
               <div class="margin-top">
               <%= link_to 'Delete the Articles', arihant_path(record),method: :delete,
                          data: {confirm: "Are you sure you want to delete the data?"} ,
                          class: "btn btn-xs btn-danger" %>
               <%= link_to 'Edit the Articles', edit_arihant_path(record),class: "btn btn-xs btn-primary" %>   
             </div>
+            <% end %>
         </div>
         
     </div>

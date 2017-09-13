@@ -1,7 +1,7 @@
 class PageController < ApplicationController
 
 def home
-    
+    redirect_to arihants_path if logged_in?
 end
 
 def about

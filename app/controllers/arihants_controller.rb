@@ -1,17 +1,21 @@
 class ArihantsController < ApplicationController
  before_action :set_article, only: [:edit,:update,:show,:destroy]
+ before_action :require_user, except: [:index,:show]
+ before_action :require_same_user, only: [:edit,:update,:destroy]
+ 
+ 
  
  def new
      @arihant = Arihant.new
  end
  
  def index
-  @allrecords = Arihant.all
+  @arihant = Arihant.paginate(page: params[:page],per_page: 5)
  end
  
  def create
   @arihant = Arihant.new(arihant_params)
-  @arihant.user = User.first
+  @arihant.user = current_user
  # render plain:params[:arihant].inspect
   if @arihant.save
    flash[:success] = "Records was successfully created."
@@ -51,4 +55,10 @@ class ArihantsController < ApplicationController
    @arihant = Arihant.find(params[:id])
   end
   
+  def require_same_user
+  if current_user != @arihant.user
+   flash[:danger] = "This article is not created by you."
+   redirect_to root_path
+  end
+  end 
 end
