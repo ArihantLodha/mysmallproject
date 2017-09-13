@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :show]
-    before_action :require_user, except: [:index,:show]
     before_action :require_same_user, only: [:edit,:update]
  
     
@@ -44,6 +43,7 @@ class UsersController < ApplicationController
     def user_params
     params.require(:user).permit(:username,:email,:password)
     end     
+    
     def set_user
     @user = User.find(params[:id])
     end 
